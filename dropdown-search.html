@@ -1,0 +1,98 @@
+<link rel="import" href="./bower_components/polymer/polymer-element.html">
+<link rel="import" href="./bower_components/paper-item/paper-item.html">
+<link rel="import" href="./bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="./bower_components/iron-dropdown/iron-dropdown.html">
+<link rel="import" href="./bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="./bower_components/paper-input/paper-input.html">
+<link rel="import" href="./bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="./bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="./bower_components/paper-icon-button/paper-icon-button.html">
+<dom-module id="dropdown-search">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      paper-dropdown-menu {
+        width: 100%;
+      }
+    </style>     
+    <input type="hidden" name="{{named}}" value="{{value}}"></input>
+     <paper-input id="search" label="{{label}}" on-input="search" placeholder="{{placeHolder}}">
+        <paper-icon-button on-tap="tap" icon="icons:arrow-drop-down" slot="suffix"></paper-icon-button>   
+    </paper-input>     
+     <div>
+     <iron-dropdown id="dropdown" vertical-align="top" no-overlap>     
+     <div slot="dropdown-content" class="random-content">
+        <paper-listbox id="list" on-selected-item-changed="change">
+        </paper-listbox> 
+    </div>
+    </iron-dropdown>
+  </div>
+  </template>
+
+  <script>
+
+    class DropdownSearch extends Polymer.Element {
+      static get is() { return 'dropdown-search'; }
+      open(){
+        this.$.dropdown.open();
+      }
+      tap()
+      {
+        this.open();
+      }
+      clear()
+      {
+        this.$.list.selected=null;
+        var myNode = this.$.list
+        while (myNode.firstChild)         
+            myNode.removeChild(myNode.firstChild);
+        
+      }
+      add(item)
+      {
+        this.$.list.appendChild(item)
+      }
+      ready()
+      {
+        super.ready();
+        this.$.dropdown.positionTarget=this.$.search
+      }
+      search(e)
+      {
+        this.dispatchEvent(new CustomEvent('search', {detail:{value:this.$.search.value}}));
+      }
+      change(e)
+      {
+        var item = e.detail.value;
+        this.value=item.getAttribute(this.param)
+        this.$.search.value=item.innerHTML;
+        this.$.dropdown.close();
+        this.dispatchEvent(new CustomEvent('selected', {detail: {item: item}}));
+      }
+      static get properties() {
+        return {
+          named:{
+            type:String
+          },
+          value:{
+            type:String
+          },
+          label:{
+            type:String
+          },
+          placeholder:{
+            type:String
+          },
+          param:{
+            type:String
+          },
+      };
+      }
+
+    }
+
+    window.customElements.define(DropdownSearch.is, DropdownSearch);
+  </script>
+</dom-module>

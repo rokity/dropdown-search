@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>dropdown-search demo</title>
+
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../dropdown-search.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic dropdown-search demo</h3>
+      <demo-snippet>
+        <template>
+          <dropdown-search label="Search" param="id" named="cazzo">
+          </dropdown-search>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+  <script>
+    function ajax(e)
+    {
+      var value = e.detail.value;
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var json = JSON.parse(this.responseText);
+          document.querySelector("dropdown-search").clear()
+          json.forEach(function(item)
+          {
+            var paperitem= document.createElement("paper-item");
+            paperitem.setAttribute("id",item.id);
+            paperitem.setAttribute("name",item.name);
+            paperitem.innerHTML=item.codice+"-"+item.descrizione;
+            document.querySelector("dropdown-search").add(paperitem)
+          })
+          document.querySelector("dropdown-search").open();
+        }
+      };
+      xhttp.open("GET", "http://localhost:3000", true);
+      xhttp.send();
+    }
+  document.querySelector("dropdown-search").addEventListener('search',ajax)
+  
+    document.querySelector("dropdown-search").addEventListener('selected',
+    function(e)
+    {
+      var item = e.detail.item;
+    });
+  </script>
+</html>
