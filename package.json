@@ -61,6 +61,7 @@
     "yarn": ">= 1.0.0"
   },
   "scripts": {
+    "start":"node server/app.js",
     "postinstall": "node -e \"try { require('fs').symlinkSync(require('path').resolve('node_modules/@bower_components'), 'bower_components', 'junction') } catch (e) { }\""
   }
 }
