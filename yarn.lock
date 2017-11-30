@@ -249,8 +249,8 @@
     wct-sauce "^2.0.0-pre.2"
 
 "@bower_components/webcomponentsjs@webcomponents/webcomponentsjs#^1.0.0":
-  version "1.0.19"
-  resolved "https://codeload.github.com/webcomponents/webcomponentsjs/tar.gz/b76064cab2bd5cf75d915a87f5aab8562488e2d9"
+  version "1.0.20"
+  resolved "https://codeload.github.com/webcomponents/webcomponentsjs/tar.gz/35acb3135c18b88bb46a737f406cbfabe5eac05c"
 
 "@polymer/sinonjs@^1.14.1":
   version "1.17.1"
@@ -499,8 +499,8 @@
     "@types/node" "*"
 
 "@webcomponents/webcomponentsjs@^1.0.7":
-  version "1.0.19"
-  resolved "https://registry.yarnpkg.com/@webcomponents/webcomponentsjs/-/webcomponentsjs-1.0.19.tgz#13849257b86a04dcf434fb145398d2cd081dee79"
+  version "1.0.20"
+  resolved "https://registry.yarnpkg.com/@webcomponents/webcomponentsjs/-/webcomponentsjs-1.0.20.tgz#bac97c9709a3130241da4c2c85710e1dc8775b1c"
 
 accepts@1.3.3:
   version "1.3.3"
@@ -2599,8 +2599,8 @@ is-obj@^1.0.0:
   resolved "https://registry.yarnpkg.com/is-obj/-/is-obj-1.0.1.tgz#3e4729ac1f5fde025cd7d83a896dab9f4f67db0f"
 
 is-path-inside@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/is-path-inside/-/is-path-inside-1.0.0.tgz#fc06e5a1683fbda13de667aff717bbc10a48f37f"
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/is-path-inside/-/is-path-inside-1.0.1.tgz#8ef5b7de50437a3fdca6b4e865ef7aa55cb48036"
   dependencies:
     path-is-inside "^1.0.1"
 
@@ -2985,8 +2985,8 @@ micromatch@^2.3.11, micromatch@^2.3.7:
     regex-cache "^0.4.2"
 
 "mime-db@>= 1.30.0 < 2":
-  version "1.31.0"
-  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.31.0.tgz#a49cd8f3ebf3ed1a482b60561d9105ad40ca74cb"
+  version "1.32.0"
+  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.32.0.tgz#485b3848b01a3cda5f968b4882c0771e58e09414"
 
 mime-db@~1.30.0:
   version "1.30.0"

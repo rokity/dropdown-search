@@ -1,11 +1,4 @@
 {
-  "name": "dropdown-search",
-  "version": "1.0.0",
-  "description": "dropdown polymer component for search with API",
-  "main": "index.js",
-  "repository": "https://github.com/rokity/dropdown-search.git",
-  "author": "riccardo.acer <riccardo@riccardoRM.regionemarche.intra>",
-  "license": "MIT",
   "dependencies": {
     "@bower_components/accessibility-developer-tools": "GoogleChrome/accessibility-developer-tools#^2.10.0",
     "@bower_components/async": "caolan/async#^1.5.0",
@@ -61,7 +54,6 @@
     "yarn": ">= 1.0.0"
   },
   "scripts": {
-    "start":"node server/app.js",
     "postinstall": "node -e \"try { require('fs').symlinkSync(require('path').resolve('node_modules/@bower_components'), 'bower_components', 'junction') } catch (e) { }\""
   }
 }
